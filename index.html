@@ -1,2 +1,41 @@
-<!-- Start! -->
- 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Message</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+    <div id="intro-message"></div>
+
+    <script>
+        const messageElement = document.getElementById('intro-message');
+        const myName = "정민정";
+
+        function intro1() {
+            return `안녕하세요! 제 이름은 ${myName}입니다.`;
+        }
+
+        function intro2() {
+            return `저는 25살 입니다.`;
+        }
+
+        function intro3() {
+            return `저는 4학년 입니다.`;
+        }
+
+        const intros = [intro1, intro2, intro3];
+        let introIndex = 0;
+
+        function updateIntro() {
+            const currentIntro = intros[introIndex];
+            messageElement.innerText = currentIntro();
+            introIndex = (introIndex + 1) % intros.length;
+        }
+
+        updateIntro();
+        setInterval(updateIntro, 3000);
+    </script>
+
+</body>
+</html>
